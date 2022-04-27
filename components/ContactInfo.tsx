@@ -1,8 +1,13 @@
-import Heading from "./Heading";
+import { contactType } from '../types'
+import Heading from './Heading'
 
-const ContactInfo = ({ contact }) => {
-  const { name, email, address } = contact || {};
-  const { street, suite, city, zipcode } = address || {};
+type contactInfoProps = {
+  contact: contactType
+}
+
+const ContactInfo = ({ contact }: contactInfoProps) => {
+  const { name, email, address } = contact || {}
+  const { street, suite, city, zipcode } = address || {}
 
   if (!contact) {
     return <Heading tag="h3" text="Empty contact" />
@@ -20,7 +25,7 @@ const ContactInfo = ({ contact }) => {
         {`${street}, ${suite}, ${city}, ${zipcode}`}
       </div>
     </>
-  );
+  )
 }
 
-export default ContactInfo;
+export default ContactInfo
